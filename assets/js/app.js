@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 入力フィールドを追加する関数
     function addInputField() {
         var container = document.getElementById('inputContainer');
-        
+
         var newInput = document.createElement('input');
         newInput.type = 'number';
         newInput.className = 'inputValue';
@@ -65,17 +65,16 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     document.getElementById('calculate').addEventListener('click', function() {
-        var inputs = document.querySelectorAll('.inputValue');
-        var weight = document.querySelectorAll('.inputWeight');
+        var values = document.querySelectorAll('.inputValue');
+        var weights = document.querySelectorAll('.inputWeight');
         var total = 0;
         var count = 0;
 
-        inputs.forEach(function(input) {
-            var value = parseFloat(input.value);
-            if (!isNaN(value)) {
-                total += value * weight;
-                count += weight;
-            }
+        values.forEach((valueField, index) => {
+            const value = parseFloat(valueField.value) || 0;
+            const weight = parseInt(weights[index].value) || 0;
+            total += value * weight;
+            count += weight;
         });
 
         var average = count > 0 ? total / count : 0;
