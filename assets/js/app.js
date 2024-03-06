@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var newInput = document.createElement('input');
         newInput.type = 'number';
         newInput.className = 'inputValue';
-        newInput.placeholder = '数値を入力';
+        newInput.placeholder = '例: 2.5';
         container.appendChild(newInput);
     }
 
