@@ -1,0 +1,31 @@
+---
+layout: default
+title: 会計アプリ
+---
+
+<h1>会計アプリ</h1>
+
+<!-- 入力フォーム -->
+<div class="input-group mb-3">
+  <input type="number" id="inputValue" class="form-control" placeholder="金額を入力" aria-label="Amount">
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary" type="button" onclick="calculate()">計算</button>
+  </div>
+</div>
+
+<!-- 計算結果を表示する領域 -->
+<div id="result"></div>
+
+<script>
+function calculate() {
+    // 入力値を取得
+    var input = document.getElementById('inputValue').value;
+    
+    // 計算を行う（例: 入力値に消費税を加算）
+    var taxRate = 0.1; // 消費税率10%
+    var result = input * (1 + taxRate);
+    
+    // 結果を表示
+    document.getElementById('result').innerHTML = '税込価格: ' + result + '円';
+}
+</script>
