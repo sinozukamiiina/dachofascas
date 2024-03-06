@@ -39,21 +39,47 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // 入力フィールドを追加する関数
+    // function addInputField() {
+    //     var container = document.getElementById('inputContainer');
+
+    //     var newInput = document.createElement('input');
+    //     newInput.type = 'number';
+    //     newInput.className = 'inputValue';
+    //     newInput.placeholder = '確率: 1.5';
+    //     container.appendChild(newInput);
+
+    //     var newWeight = document.createElement('input');
+    //     newWeight.type = 'number';
+    //     newWeight.className = 'inputWeight';
+    //     newWeight.placeholder = '確保数: 2';
+    //     newWeight.value = 1; // デフォルトの重みは1
+    //     container.appendChild(newWeight);
+    // }
+
     function addInputField() {
-        var container = document.getElementById('inputContainer');
-
-        var newInput = document.createElement('input');
+        const container = document.getElementById('inputContainer');
+        
+        // 新しいグループのコンテナを作成
+        const group = document.createElement('div');
+        group.classList.add('input-group', 'mb-3'); // Bootstrapのクラスを使用してマージンを設定
+    
+        // 新しい値の入力フィールドを作成
+        const newInput = document.createElement('input');
         newInput.type = 'number';
-        newInput.className = 'inputValue';
-        newInput.placeholder = '確率: 1.5';
-        container.appendChild(newInput);
-
-        var newWeight = document.createElement('input');
+        newInput.classList.add('inputValue', 'form-control');
+        newInput.placeholder = '数値を入力';
+        group.appendChild(newInput);
+    
+        // 新しい重みの入力フィールドを作成
+        const newWeight = document.createElement('input');
         newWeight.type = 'number';
-        newWeight.className = 'inputWeight';
-        newWeight.placeholder = '確保数: 2';
+        newWeight.classList.add('inputWeight', 'form-control');
+        newWeight.placeholder = '重みを入力';
         newWeight.value = 1; // デフォルトの重みは1
-        container.appendChild(newWeight);
+        group.appendChild(newWeight);
+    
+        // 新しいグループのコンテナを既存の入力グループに追加
+        container.appendChild(group);
     }
 
     // 最初の入力フィールドを追加
