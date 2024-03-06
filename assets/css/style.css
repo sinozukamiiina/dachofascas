@@ -2,3 +2,8 @@ html, body {
     max-width: 100%;
     overflow-x: hidden;
 }
+.inputValue,
+.inputWeight {
+    width: 100px;
+    margin-right: 10px;
+}
